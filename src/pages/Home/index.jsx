@@ -1,8 +1,9 @@
-function Home() {
-  const linkExternal = () => {
-    window.open("https://openai.com/chatgpt/", "_blank", "noopener,noreferrer");
-  };
+import { Link } from 'react-router-dom';
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
+import Card from '../../components/Card';
 
+function Home() {
   const data = [
     { id: 1, name: "Java" },
     { id: 2, name: "Python" },
@@ -16,53 +17,26 @@ function Home() {
     alert("Operação realizada com sucesso!");
   };
 
-  return (
-    <div className="flex flex-col h-screen w-screen bg-white">
-      {/* Header */}
-      <header className="w-full h-14 bg-blue-950 text-white flex items-center justify-center">
-        <img onClick={linkExternal} className="object-cover w-12" src="/public/ChatGPT-Logo.png" alt="" />
-        <h1 className="text-xl font-bold">CodePedia</h1>
-        <img onClick={linkExternal} className="object-cover w-12" src="/public/ChatGPT-Logo.png" alt="" />
-      </header>
+  const linguagens = [
+    { id: 1, name: 'C#', image: '/produto1.jpg', price: 'R$ 100', description: 'Descrição do Produto 1' },
+    { id: 2, name: 'C++', image: '/produto2.jpg', price: 'R$ 200', description: 'Descrição do Produto 2' },
+    { id: 3, name: 'Pamella', image: '/produto3.jpg', price: 'R$ 300', description: 'Descrição do Produto 3' },
+  ];
 
+  return (
+    <body className="flex flex-col h-screen w-screen bg-white">
+      <Navbar />
       {/* Main content */}
       <main className="flex-grow flex flex-col items-center justify-center p-4 gap-20">
-        <div className="flex w-full max-w-4xl justify-center gap-8 mb-8">
-          <div className="flex flex-col justify-center items-center w-80 h-80 border-2 border-black rounded-xl p-4 shadow-xl transform transition-transform duration-300 hover:scale-105">
-            <img
-              className="object-cover w-36 h-36 mb-4"
-              src="/public/javinha.svg"
-              alt="Java"
-            />
-            <div className="text-center">
-              <h2 className="font-pt-sans font-semibold text-lg mb-2">JAVA</h2>
-              <button
-                onClick={linkExternal}
-                className="bg-cyan-900 p-3 rounded-md font-bold text-white"
-              >
-                Show me more
-              </button>
-            </div>
-          </div>
-
-          <div className="flex flex-col justify-center items-center w-80 h-80 border-2 border-black rounded-xl p-4 shadow-xl transform transition-transform duration-300 hover:scale-105">
-            <img
-              className="object-cover w-36 h-36 mb-4"
-              src="/public/pythonzinho.svg"
-              alt="Python"
-            />
-            <div className="text-center">
-              <h2 className="font-pt-sans font-semibold text-lg mb-2">
-                PYTHON
-              </h2>
-              <button
-                onClick={linkExternal}
-                className="bg-cyan-900 p-3 rounded-md font-bold text-white"
-              >
-                Show me more
-              </button>
-            </div>
-          </div>
+        <div className="flex gap-10">
+          {linguagens.map(linguagens => (
+              <Link to={`/linguagem/${linguagens.id}`} key={linguagens.id}>
+                <Card 
+                  key={linguagens.id}
+                  name={linguagens.name}
+                />
+              </Link>
+            ))}
         </div>
 
         {/* Table */}
@@ -100,14 +74,8 @@ function Home() {
             </button>    
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="w-full h-14 bg-blue-950 text-white flex items-center justify-center">
-        <img onClick={linkExternal} className="object-cover w-12" src="/public/ChatGPT-Logo.png" alt="" />
-        <img onClick={linkExternal} className="object-cover w-12" src="/public/ChatGPT-Logo.png" alt="" />
-        <img onClick={linkExternal} className="object-cover w-12" src="/public/ChatGPT-Logo.png" alt="" />
-      </footer>
-    </div>
+      <Footer />
+    </body>
   );
 }
 

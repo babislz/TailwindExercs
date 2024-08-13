@@ -3,9 +3,10 @@ import Navbar from "../../components/Navbar";
 
 const Infos = () => {
   return (
-    <>
+
+    <body className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="p-8 max-w-4xl mx-auto">
+      <main className="flex-grow p-8 max-w-4xl mx-auto flex flex-col justify-center items-center">
         <h1 className="text-4xl font-bold mb-6">Sobre o Site</h1>
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">O que fazemos?</h2>
@@ -50,7 +51,7 @@ const Infos = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </body>
   );
 };
 

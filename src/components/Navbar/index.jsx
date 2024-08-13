@@ -30,14 +30,7 @@ const Navbar = () => {
                             alt="contact-image" 
                         />
                     </Link>
-                    <Link>
-                        <img 
-                            className="object-cover w-8" 
-                            src="/public/intercambio.png" 
-                            alt="buy-image" 
-                        />
-                    </Link>
-                    <Link>
+                    <Link to="/infos">
                         <img 
                             className="object-cover w-8" 
                             src="/public/sobre-nos.png" 

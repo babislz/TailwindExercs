@@ -4,11 +4,6 @@ import Navbar from "../../components/Navbar";
 import Card from '../../components/Card';
 
 function Home() {
-  const data = [
-    { id: 1, name: "Java" },
-    { id: 2, name: "Python" },
-  ];
-
   const mostrarErro = () => {
     alert("Ocorreu um erro!");
   };
@@ -18,9 +13,8 @@ function Home() {
   };
 
   const linguagens = [
-    { id: 1, name: 'C#', image: '/produto1.jpg', price: 'R$ 100', description: 'Descrição do Produto 1' },
-    { id: 2, name: 'C++', image: '/produto2.jpg', price: 'R$ 200', description: 'Descrição do Produto 2' },
-    { id: 3, name: 'Pamella', image: '/produto3.jpg', price: 'R$ 300', description: 'Descrição do Produto 3' },
+    { id: 1, name: 'Java', image: '/produto1.jpg', price: 'R$ 100', description: 'Descrição do Produto 1' },
+
   ];
 
   return (
@@ -49,7 +43,7 @@ function Home() {
               </tr>
             </thead>
             <tbody>
-              {data.map((row) => (
+              {linguagens.map((row) => (
                 <tr key={row.id}>
                   <td className="border-2 p-2 text-center">{row.id}</td>
                   <td className="border-2 p-2">{row.name}</td>
